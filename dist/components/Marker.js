@@ -157,7 +157,7 @@
           label: label,
           title: title,
           draggable: draggable,
-          animation: animation
+          animation: animation,
           optimized: optimized,
           zIndex: zIndex
         };
