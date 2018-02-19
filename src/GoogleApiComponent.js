@@ -7,13 +7,17 @@ import GoogleApi from './lib/GoogleApi'
 const defaultMapConfig = {}
 const defaultCreateCache = (options) => {
     options = options || {};
+    const client = options.client;
+    const channel = options.channel;
     const apiKey = options.apiKey;
     const libraries = options.libraries || ['places'];
-    const version = options.version || '3.29';
+    const version = options.version || '3.32';
     const language = options.language || 'en';
 
     return ScriptCache({
         google: GoogleApi({
+            channel: channel,
+            client: client,
             apiKey: apiKey,
             language: language,
             libraries: libraries,
@@ -23,9 +27,11 @@ const defaultCreateCache = (options) => {
 };
 
 export const wrapper = (options) => (WrappedComponent) => {
+    const client = options.client;
+    const channel = options.channel;
     const apiKey = options.apiKey;
-    const libraries = options.libraries || ['places'];
-    const version = options.version || '3';
+    const libraries = options.libraries || ['drawing', 'places', 'geometry'];
+    const version = options.version || '3.32';
     const createCache = options.createCache || defaultCreateCache;
 
     class Wrapper extends React.Component {
