@@ -81,13 +81,18 @@
     var defaultMapConfig = {};
     var defaultCreateCache = function defaultCreateCache(options) {
         options = options || {};
+        var client = options.client;
+        var channel = options.channel;
         var apiKey = options.apiKey;
         var libraries = options.libraries || ['places'];
         var version = options.version || '3.28';
         var language = options.language || 'en';
 
+
         return (0, _ScriptCache.ScriptCache)({
             google: (0, _GoogleApi2.default)({
+                client: client,
+                channel: channel,
                 apiKey: apiKey,
                 language: language,
                 libraries: libraries,
@@ -98,6 +103,8 @@
 
     var wrapper = exports.wrapper = function wrapper(options) {
         return function (WrappedComponent) {
+            var client = options.client;
+            var channel = options.channel;
             var apiKey = options.apiKey;
             var libraries = options.libraries || ['places'];
             var version = options.version || '3';
