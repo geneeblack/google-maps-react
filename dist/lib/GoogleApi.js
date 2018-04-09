@@ -55,9 +55,7 @@
                 key: apiKey,
                 callback: 'CALLBACK_NAME',
                 libraries: libraries.join(','),
-                client: client,
                 v: googleVersion,
-                channel: channel,
                 language: language,
                 region: region
             };
