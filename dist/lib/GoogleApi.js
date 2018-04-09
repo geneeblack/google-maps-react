@@ -31,11 +31,10 @@
 
         (0, _invariant2.default)(opts.hasOwnProperty('apiKey'), 'You must pass an apiKey to use GoogleApi');
 
-        var client = ops.client;
+        var client = opts.client;
         var channel = opts.channel;
         var apiKey = opts.apiKey;
         var libraries = opts.libraries || ['places'];
-        var client = opts.client;
         var URL = 'https://maps.googleapis.com/maps/api/js';
 
         var googleVersion = opts.version || '3';
@@ -43,7 +42,6 @@
         var script = null;
         var google = window.google || null;
         var loading = false;
-        var channel = null;
         var language = opts.language;
         var region = null;
 
