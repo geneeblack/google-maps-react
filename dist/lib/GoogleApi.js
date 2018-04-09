@@ -31,6 +31,8 @@
 
         (0, _invariant2.default)(opts.hasOwnProperty('apiKey'), 'You must pass an apiKey to use GoogleApi');
 
+        var client = ops.client;
+        var channel = opts.channel;
         var apiKey = opts.apiKey;
         var libraries = opts.libraries || ['places'];
         var client = opts.client;
@@ -50,6 +52,8 @@
         var url = function url() {
             var url = URL;
             var params = {
+                client: client,
+                channel: channel,
                 key: apiKey,
                 callback: 'CALLBACK_NAME',
                 libraries: libraries.join(','),
